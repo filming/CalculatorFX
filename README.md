@@ -4,7 +4,7 @@
 
 ### Core features of this calculator include:
 - Addition
-- Subtract
+- Subtraction
 - Division
 - Multiplication
 
