@@ -31,11 +31,11 @@ public class CalculatorView extends Pane {
         setStyle("-fx-background-color: #24252F");
 
         // create output display
-        outputField = new TextField();
-        outputField.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
-        outputField.setPrefSize(380, 130);
-        outputField.relocate(10, 10);
-        getChildren().add(outputField);
+
+
+
+
+
 
         // creating a divider
         Rectangle divider = new Rectangle(10, 300, 318, 2);
