@@ -38,7 +38,7 @@ public class CalculatorView extends Pane {
         getChildren().add(outputField);
 
         // creating a divider
-        Rectangle divider = new Rectangle(10, 300, 380, 2);
+        Rectangle divider = new Rectangle(10, 300, 318, 2);
         Color customColour = Color.rgb(58, 58, 75);
         divider.setFill(customColour);
         getChildren().add(divider);
