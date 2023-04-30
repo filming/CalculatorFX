@@ -381,7 +381,24 @@ public class CalculatorView extends Pane {
         additionButton.setTranslateY(566);
 
         // sign button
+        StackPane signButtonPane = new StackPane();
+        Circle signButtonCircle = new Circle(36, Color.rgb(46,47,61));
+        Label signButtonLabel = new Label("+/-");
+        signButtonLabel.setTextFill(Color.rgb(225, 255, 255));
+        signButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
+        signButtonPane.getChildren().addAll(signButtonCircle, signButtonLabel);
 
+        signButton = new Button("");
+        signButton.setGraphic(signButtonPane);
+        signButton.setShape(signButtonCircle);
+        signButton.setMinSize(72, 72);
+        signButton.setMaxSize(72, 72);
+        signButton.setBackground(Background.EMPTY);
+        signButton.setBorder(Border.EMPTY);
+        signButton.setPadding(Insets.EMPTY);
+        signButton.setPickOnBounds(false);
+        signButton.setTranslateX(10);
+        signButton.setTranslateY(648);
 
         // number 0 button
 
@@ -400,7 +417,8 @@ public class CalculatorView extends Pane {
                 clearButton, bracketsButton, percentButton, divideButton,
                 sevenButton, eightButton, nineButton, multiplyButton,
                 fourButton, fiveButton, sixButton, subtractionButton,
-                oneButton, twoButton, threeButton, additionButton
+                oneButton, twoButton, threeButton, additionButton,
+                signButton
         );
     }
 
