@@ -24,6 +24,15 @@ public class CalculatorView extends Pane {
     Button bracketsButton;
     Button percentButton;
     Button divideButton;
+    Button oneButton;
+    Button twoButton;
+    Button threeButton;
+    Button fourButton;
+    Button fiveButton;
+    Button sixButton;
+    Button sevenButton;
+    Button eightButton;
+    Button nineButton;
 
     public CalculatorView(){
         // set default settings
@@ -109,7 +118,7 @@ public class CalculatorView extends Pane {
         Circle divideButtonCircle = new Circle(36, Color.rgb(60, 61, 78));
         Label divideButtonLabel = new Label("÷");
         divideButtonLabel.setTextFill(Color.rgb(225, 178, 65));
-        divideButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+        divideButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 36));
         dividePane.getChildren().addAll(divideButtonCircle, divideButtonLabel);
 
         divideButton = new Button("");
@@ -121,15 +130,33 @@ public class CalculatorView extends Pane {
         divideButton.setBorder(Border.EMPTY);
         divideButton.setPadding(Insets.EMPTY);
         divideButton.setPickOnBounds(false);
-        divideButton.setTranslateX(256); // 266
+        divideButton.setTranslateX(256);
         divideButton.setTranslateY(320);
 
+        // number 7 button
+        StackPane sevenButtonPane = new StackPane();
+        Circle sevenButtonCircle = new Circle(36, Color.rgb(46,47,61));
+        Label sevenButtonLabel = new Label("7");
+        sevenButtonLabel.setTextFill(Color.rgb(225, 255, 255));
+        sevenButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
+        sevenButtonPane.getChildren().addAll(sevenButtonCircle, sevenButtonLabel);
+
+        sevenButton = new Button("");
+        sevenButton.setGraphic(sevenButtonPane);
+        sevenButton.setShape(sevenButtonCircle);
+        sevenButton.setMinSize(72, 72);
+        sevenButton.setMaxSize(72, 72);
+        sevenButton.setBackground(Background.EMPTY);
+        sevenButton.setBorder(Border.EMPTY);
+        sevenButton.setPadding(Insets.EMPTY);
+        sevenButton.setPickOnBounds(false);
+        sevenButton.setTranslateX(10);
+        sevenButton.setTranslateY(400);
 
 
+        // 46,47,61
 
-
-
-        getChildren().addAll(clearButton, bracketsButton, percentButton, divideButton);
+        getChildren().addAll(clearButton, bracketsButton, percentButton, divideButton, sevenButton);
     }
 
 }
