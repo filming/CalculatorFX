@@ -30,6 +30,7 @@ public class CalculatorView extends Pane {
     Button decimalButton;
 
 
+    Button zeroButton;
     Button oneButton;
     Button twoButton;
     Button threeButton;
@@ -299,6 +300,28 @@ public class CalculatorView extends Pane {
         subtractionButton.setTranslateX(256);
         subtractionButton.setTranslateY(484);
 
+        // number 1 button
+
+
+        // number 2 button
+
+
+        // number 3 button
+
+
+        // addition button
+
+
+        // sign button
+
+
+        // number 0 button
+
+
+        // decimal button
+
+
+        // equals button
 
 
 
