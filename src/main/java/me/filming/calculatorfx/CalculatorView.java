@@ -1,7 +1,6 @@
 package me.filming.calculatorfx;
 
 import javafx.geometry.Insets;
-import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
@@ -12,9 +11,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.shape.Line;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import javafx.scene.control.Label;
 
 public class CalculatorView extends Pane {
