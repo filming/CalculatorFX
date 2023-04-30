@@ -160,7 +160,7 @@ public class CalculatorView extends Pane {
         sevenButton.setPadding(Insets.EMPTY);
         sevenButton.setPickOnBounds(false);
         sevenButton.setTranslateX(10);
-        sevenButton.setTranslateY(400);
+        sevenButton.setTranslateY(402);
 
         // number 8 button
         StackPane eightButtonPane = new StackPane();
@@ -180,7 +180,7 @@ public class CalculatorView extends Pane {
         eightButton.setPadding(Insets.EMPTY);
         eightButton.setPickOnBounds(false);
         eightButton.setTranslateX(92);
-        eightButton.setTranslateY(400);
+        eightButton.setTranslateY(402);
 
         // number 9 button
         StackPane nineButtonPane = new StackPane();
@@ -200,13 +200,13 @@ public class CalculatorView extends Pane {
         nineButton.setPadding(Insets.EMPTY);
         nineButton.setPickOnBounds(false);
         nineButton.setTranslateX(174);
-        nineButton.setTranslateY(400);
+        nineButton.setTranslateY(402);
 
         // multiply button
         StackPane multiplyButtonPane = new StackPane();
         Circle multiplyButtonCircle = new Circle(36, Color.rgb(46,47,61));
         Label multiplyButtonLabel = new Label("X");
-        multiplyButtonLabel.setTextFill(Color.rgb(225, 255, 255));
+        multiplyButtonLabel.setTextFill(Color.rgb(225, 178, 65));
         multiplyButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
         multiplyButtonPane.getChildren().addAll(multiplyButtonCircle, multiplyButtonLabel);
 
@@ -220,7 +220,89 @@ public class CalculatorView extends Pane {
         multiplyButton.setPadding(Insets.EMPTY);
         multiplyButton.setPickOnBounds(false);
         multiplyButton.setTranslateX(256);
-        multiplyButton.setTranslateY(400);
+        multiplyButton.setTranslateY(402);
+
+        // number 4 button
+        StackPane fourButtonPane = new StackPane();
+        Circle fourButtonCircle = new Circle(36, Color.rgb(46,47,61));
+        Label fourButtonLabel = new Label("4");
+        fourButtonLabel.setTextFill(Color.rgb(225, 255, 255));
+        fourButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
+        fourButtonPane.getChildren().addAll(fourButtonCircle, fourButtonLabel);
+
+        fourButton = new Button("");
+        fourButton.setGraphic(fourButtonPane);
+        fourButton.setShape(fourButtonCircle);
+        fourButton.setMinSize(72, 72);
+        fourButton.setMaxSize(72, 72);
+        fourButton.setBackground(Background.EMPTY);
+        fourButton.setBorder(Border.EMPTY);
+        fourButton.setPadding(Insets.EMPTY);
+        fourButton.setPickOnBounds(false);
+        fourButton.setTranslateX(10);
+        fourButton.setTranslateY(484);
+
+        // number 5 button
+        StackPane fiveButtonPane = new StackPane();
+        Circle fiveButtonCircle = new Circle(36, Color.rgb(46,47,61));
+        Label fiveButtonLabel = new Label("5");
+        fiveButtonLabel.setTextFill(Color.rgb(225, 255, 255));
+        fiveButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
+        fiveButtonPane.getChildren().addAll(fiveButtonCircle, fiveButtonLabel);
+
+        fiveButton = new Button("");
+        fiveButton.setGraphic(fiveButtonPane);
+        fiveButton.setShape(fiveButtonCircle);
+        fiveButton.setMinSize(72, 72);
+        fiveButton.setMaxSize(72, 72);
+        fiveButton.setBackground(Background.EMPTY);
+        fiveButton.setBorder(Border.EMPTY);
+        fiveButton.setPadding(Insets.EMPTY);
+        fiveButton.setPickOnBounds(false);
+        fiveButton.setTranslateX(92);
+        fiveButton.setTranslateY(484);
+
+        // number 6 button
+        StackPane sixButtonPane = new StackPane();
+        Circle sixButtonCircle = new Circle(36, Color.rgb(46,47,61));
+        Label sixButtonLabel = new Label("6");
+        sixButtonLabel.setTextFill(Color.rgb(225, 255, 255));
+        sixButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
+        sixButtonPane.getChildren().addAll(sixButtonCircle, sixButtonLabel);
+
+        sixButton = new Button("");
+        sixButton.setGraphic(sixButtonPane);
+        sixButton.setShape(sixButtonCircle);
+        sixButton.setMinSize(72, 72);
+        sixButton.setMaxSize(72, 72);
+        sixButton.setBackground(Background.EMPTY);
+        sixButton.setBorder(Border.EMPTY);
+        sixButton.setPadding(Insets.EMPTY);
+        sixButton.setPickOnBounds(false);
+        sixButton.setTranslateX(174);
+        sixButton.setTranslateY(484);
+
+        // subtract button
+        StackPane subtractionButtonPane = new StackPane();
+        Circle subtractionButtonCircle = new Circle(36, Color.rgb(46,47,61));
+        Label subtractionButtonLabel = new Label("━");
+        subtractionButtonLabel.setTextFill(Color.rgb(225, 178, 65));
+        subtractionButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
+        subtractionButtonPane.getChildren().addAll(subtractionButtonCircle, subtractionButtonLabel);
+
+        subtractionButton = new Button("");
+        subtractionButton.setGraphic(subtractionButtonPane);
+        subtractionButton.setShape(subtractionButtonCircle);
+        subtractionButton.setMinSize(72, 72);
+        subtractionButton.setMaxSize(72, 72);
+        subtractionButton.setBackground(Background.EMPTY);
+        subtractionButton.setBorder(Border.EMPTY);
+        subtractionButton.setPadding(Insets.EMPTY);
+        subtractionButton.setPickOnBounds(false);
+        subtractionButton.setTranslateX(256);
+        subtractionButton.setTranslateY(484);
+
+
 
 
 
@@ -228,8 +310,11 @@ public class CalculatorView extends Pane {
 
         getChildren().addAll(
                 clearButton, bracketsButton, percentButton, divideButton,
-                sevenButton, eightButton, nineButton, multiplyButton
+                sevenButton, eightButton, nineButton, multiplyButton,
+                fourButton, fiveButton, sixButton, subtractionButton
         );
     }
+
+
 
 }
