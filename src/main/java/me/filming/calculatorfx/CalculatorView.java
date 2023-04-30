@@ -1,22 +1,13 @@
 package me.filming.calculatorfx;
 
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.paint.Color;
-import javafx.scene.control.Label;
 
-import me.filming.calculatorfx.controller.ButtonEventHandler;
 import me.filming.calculatorfx.view.CustomButton;
-
+import me.filming.calculatorfx.controller.ButtonEventHandler;
 
 public class CalculatorView extends Pane {
     TextField outputField;
@@ -49,7 +40,7 @@ public class CalculatorView extends Pane {
         ButtonEventHandler buttonEventHandler = new ButtonEventHandler();
 
         // set default settings
-        setPrefSize(338, 760);
+        setPrefSize(338, 738);
         setStyle("-fx-background-color: #24252F");
 
         // create output display
@@ -67,344 +58,139 @@ public class CalculatorView extends Pane {
 
         // create buttons
         // clear button
-        StackPane clearPane = new StackPane();
-        Circle clearButtonCircle = new Circle(36, Color.rgb(60, 61, 78));
-        Label clearButtonLabel = new Label("C");
-        clearButtonLabel.setTextFill(Color.rgb(231, 121, 51));
-        clearButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
-        clearPane.getChildren().addAll(clearButtonCircle, clearButtonLabel);
+        CustomButton clearCustomButton = new CustomButton(10, 320,
+                60, 61, 78,
+                "C", 26, 231, 121, 51);
 
-        clearButton = new Button("");
-        clearButton.setGraphic(clearPane);
-        clearButton.setShape(clearButtonCircle);
-        clearButton.setMinSize(72, 72);
-        clearButton.setMaxSize(72, 72);
-        clearButton.setBackground(Background.EMPTY);
-        clearButton.setBorder(Border.EMPTY);
-        clearButton.setPadding(Insets.EMPTY);
-        clearButton.setPickOnBounds(false);
-        clearButton.setTranslateX(10);
-        clearButton.setTranslateY(320);
+        clearButton = clearCustomButton.getButton();
+        clearButton.setOnAction(buttonEventHandler::clearButtonHandler);
 
         // brackets button
-        StackPane bracketsPane = new StackPane();
-        Circle bracketsButtonCircle = new Circle(36, Color.rgb(60, 61, 78));
-        Label bracketsButtonLabel = new Label("(  )");
-        bracketsButtonLabel.setTextFill(Color.rgb(225, 178, 65));
-        bracketsButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
-        bracketsPane.getChildren().addAll(bracketsButtonCircle, bracketsButtonLabel);
+        CustomButton bracketsCustomButton = new CustomButton(92, 320,
+                60, 61, 78,
+                "(  )", 26, 225, 178, 65);
 
-        bracketsButton = new Button("");
-        bracketsButton.setGraphic(bracketsPane);
-        bracketsButton.setShape(bracketsButtonCircle);
-        bracketsButton.setMinSize(72, 72);
-        bracketsButton.setMaxSize(72, 72);
-        bracketsButton.setBackground(Background.EMPTY);
-        bracketsButton.setBorder(Border.EMPTY);
-        bracketsButton.setPadding(Insets.EMPTY);
-        bracketsButton.setPickOnBounds(false);
-        bracketsButton.setTranslateX(92);
-        bracketsButton.setTranslateY(320);
+        bracketsButton = bracketsCustomButton.getButton();
+        bracketsButton.setOnAction(buttonEventHandler::bracketsButtonHandler);
 
         // percent button
-        StackPane percentPane = new StackPane();
-        Circle percentButtonCircle = new Circle(36, Color.rgb(60, 61, 78));
-        Label percentButtonLabel = new Label("%");
-        percentButtonLabel.setTextFill(Color.rgb(225, 178, 65));
-        percentButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
-        percentPane.getChildren().addAll(percentButtonCircle, percentButtonLabel);
+        CustomButton percentCustomButton = new CustomButton(174, 320,
+                60, 61, 78,
+                "%", 26, 225, 178, 65);
 
-        percentButton = new Button("");
-        percentButton.setGraphic(percentPane);
-        percentButton.setShape(percentButtonCircle);
-        percentButton.setMinSize(72, 72);
-        percentButton.setMaxSize(72, 72);
-        percentButton.setBackground(Background.EMPTY);
-        percentButton.setBorder(Border.EMPTY);
-        percentButton.setPadding(Insets.EMPTY);
-        percentButton.setPickOnBounds(false);
-        percentButton.setTranslateX(174);
-        percentButton.setTranslateY(320);
+        percentButton = percentCustomButton.getButton();
+        percentButton.setOnAction(buttonEventHandler::percentButtonHandler);
 
         // divide button
-        StackPane dividePane = new StackPane();
-        Circle divideButtonCircle = new Circle(36, Color.rgb(60, 61, 78));
-        Label divideButtonLabel = new Label("÷");
-        divideButtonLabel.setTextFill(Color.rgb(225, 178, 65));
-        divideButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 36));
-        dividePane.getChildren().addAll(divideButtonCircle, divideButtonLabel);
+        CustomButton divideCustomButton = new CustomButton(256, 320,
+                60, 61, 78,
+                "÷", 36, 225, 178, 65);
 
-        divideButton = new Button("");
-        divideButton.setGraphic(dividePane);
-        divideButton.setShape(divideButtonCircle);
-        divideButton.setMinSize(72, 72);
-        divideButton.setMaxSize(72, 72);
-        divideButton.setBackground(Background.EMPTY);
-        divideButton.setBorder(Border.EMPTY);
-        divideButton.setPadding(Insets.EMPTY);
-        divideButton.setPickOnBounds(false);
-        divideButton.setTranslateX(256);
-        divideButton.setTranslateY(320);
+        divideButton = divideCustomButton.getButton();
+        divideButton.setOnAction(buttonEventHandler::divideButtonHandler);
 
         // number 7 button
-        StackPane sevenButtonPane = new StackPane();
-        Circle sevenButtonCircle = new Circle(36, Color.rgb(46,47,61));
-        Label sevenButtonLabel = new Label("7");
-        sevenButtonLabel.setTextFill(Color.rgb(225, 255, 255));
-        sevenButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
-        sevenButtonPane.getChildren().addAll(sevenButtonCircle, sevenButtonLabel);
+        CustomButton sevenCustomButton = new CustomButton(10, 402,
+                46, 47, 61,
+                "7", 26,255, 255, 255);
 
-        sevenButton = new Button("");
-        sevenButton.setGraphic(sevenButtonPane);
-        sevenButton.setShape(sevenButtonCircle);
-        sevenButton.setMinSize(72, 72);
-        sevenButton.setMaxSize(72, 72);
-        sevenButton.setBackground(Background.EMPTY);
-        sevenButton.setBorder(Border.EMPTY);
-        sevenButton.setPadding(Insets.EMPTY);
-        sevenButton.setPickOnBounds(false);
-        sevenButton.setTranslateX(10);
-        sevenButton.setTranslateY(402);
+        sevenButton = sevenCustomButton.getButton();
+        sevenButton.setOnAction(buttonEventHandler::sevenButtonHandler);
 
         // number 8 button
-        StackPane eightButtonPane = new StackPane();
-        Circle eightButtonCircle = new Circle(36, Color.rgb(46,47,61));
-        Label eightButtonLabel = new Label("8");
-        eightButtonLabel.setTextFill(Color.rgb(225, 255, 255));
-        eightButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
-        eightButtonPane.getChildren().addAll(eightButtonCircle, eightButtonLabel);
+        CustomButton eightCustomButton = new CustomButton(92, 402,
+                46, 47, 61,
+                "8", 26,255, 255, 255);
 
-        eightButton = new Button("");
-        eightButton.setGraphic(eightButtonPane);
-        eightButton.setShape(eightButtonCircle);
-        eightButton.setMinSize(72, 72);
-        eightButton.setMaxSize(72, 72);
-        eightButton.setBackground(Background.EMPTY);
-        eightButton.setBorder(Border.EMPTY);
-        eightButton.setPadding(Insets.EMPTY);
-        eightButton.setPickOnBounds(false);
-        eightButton.setTranslateX(92);
-        eightButton.setTranslateY(402);
+        eightButton = eightCustomButton.getButton();
+        eightButton.setOnAction(buttonEventHandler::eightButtonHandler);
 
         // number 9 button
-        StackPane nineButtonPane = new StackPane();
-        Circle nineButtonCircle = new Circle(36, Color.rgb(46,47,61));
-        Label nineButtonLabel = new Label("9");
-        nineButtonLabel.setTextFill(Color.rgb(225, 255, 255));
-        nineButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
-        nineButtonPane.getChildren().addAll(nineButtonCircle, nineButtonLabel);
+        CustomButton nineCustomButton = new CustomButton(174, 402,
+                46, 47, 61,
+                "9", 26, 255, 255, 255);
 
-        nineButton = new Button("");
-        nineButton.setGraphic(nineButtonPane);
-        nineButton.setShape(nineButtonCircle);
-        nineButton.setMinSize(72, 72);
-        nineButton.setMaxSize(72, 72);
-        nineButton.setBackground(Background.EMPTY);
-        nineButton.setBorder(Border.EMPTY);
-        nineButton.setPadding(Insets.EMPTY);
-        nineButton.setPickOnBounds(false);
-        nineButton.setTranslateX(174);
-        nineButton.setTranslateY(402);
+        nineButton = nineCustomButton.getButton();
+        nineButton.setOnAction(buttonEventHandler::nineButtonHandler);
 
         // multiply button
-        StackPane multiplyButtonPane = new StackPane();
-        Circle multiplyButtonCircle = new Circle(36, Color.rgb(46,47,61));
-        Label multiplyButtonLabel = new Label("X");
-        multiplyButtonLabel.setTextFill(Color.rgb(225, 178, 65));
-        multiplyButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
-        multiplyButtonPane.getChildren().addAll(multiplyButtonCircle, multiplyButtonLabel);
+        CustomButton multiplyCustomButton = new CustomButton(256, 402,
+                46, 47, 61,
+                "X", 26, 225, 178, 65);
 
-        multiplyButton = new Button("");
-        multiplyButton.setGraphic(multiplyButtonPane);
-        multiplyButton.setShape(multiplyButtonCircle);
-        multiplyButton.setMinSize(72, 72);
-        multiplyButton.setMaxSize(72, 72);
-        multiplyButton.setBackground(Background.EMPTY);
-        multiplyButton.setBorder(Border.EMPTY);
-        multiplyButton.setPadding(Insets.EMPTY);
-        multiplyButton.setPickOnBounds(false);
-        multiplyButton.setTranslateX(256);
-        multiplyButton.setTranslateY(402);
+        multiplyButton = multiplyCustomButton.getButton();
+        multiplyButton.setOnAction(buttonEventHandler::multiplyButtonHandler);
 
         // number 4 button
-        StackPane fourButtonPane = new StackPane();
-        Circle fourButtonCircle = new Circle(36, Color.rgb(46,47,61));
-        Label fourButtonLabel = new Label("4");
-        fourButtonLabel.setTextFill(Color.rgb(225, 255, 255));
-        fourButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
-        fourButtonPane.getChildren().addAll(fourButtonCircle, fourButtonLabel);
+        CustomButton fourCustomButton = new CustomButton(10, 484,
+                46,47, 61,
+                "4", 26,255, 255, 255);
 
-        fourButton = new Button("");
-        fourButton.setGraphic(fourButtonPane);
-        fourButton.setShape(fourButtonCircle);
-        fourButton.setMinSize(72, 72);
-        fourButton.setMaxSize(72, 72);
-        fourButton.setBackground(Background.EMPTY);
-        fourButton.setBorder(Border.EMPTY);
-        fourButton.setPadding(Insets.EMPTY);
-        fourButton.setPickOnBounds(false);
-        fourButton.setTranslateX(10);
-        fourButton.setTranslateY(484);
+        fourButton = fourCustomButton.getButton();
+        fourButton.setOnAction(buttonEventHandler::fourButtonHandler);
 
         // number 5 button
-        StackPane fiveButtonPane = new StackPane();
-        Circle fiveButtonCircle = new Circle(36, Color.rgb(46,47,61));
-        Label fiveButtonLabel = new Label("5");
-        fiveButtonLabel.setTextFill(Color.rgb(225, 255, 255));
-        fiveButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
-        fiveButtonPane.getChildren().addAll(fiveButtonCircle, fiveButtonLabel);
+        CustomButton fiveCustomButton = new CustomButton(92, 484,
+                46, 47, 61,
+                "5", 26, 255, 255, 255);
 
-        fiveButton = new Button("");
-        fiveButton.setGraphic(fiveButtonPane);
-        fiveButton.setShape(fiveButtonCircle);
-        fiveButton.setMinSize(72, 72);
-        fiveButton.setMaxSize(72, 72);
-        fiveButton.setBackground(Background.EMPTY);
-        fiveButton.setBorder(Border.EMPTY);
-        fiveButton.setPadding(Insets.EMPTY);
-        fiveButton.setPickOnBounds(false);
-        fiveButton.setTranslateX(92);
-        fiveButton.setTranslateY(484);
+        fiveButton = fiveCustomButton.getButton();
+        fiveButton.setOnAction(buttonEventHandler::fiveButtonHandler);
 
         // number 6 button
-        StackPane sixButtonPane = new StackPane();
-        Circle sixButtonCircle = new Circle(36, Color.rgb(46,47,61));
-        Label sixButtonLabel = new Label("6");
-        sixButtonLabel.setTextFill(Color.rgb(225, 255, 255));
-        sixButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
-        sixButtonPane.getChildren().addAll(sixButtonCircle, sixButtonLabel);
+        CustomButton sixCustomButton = new CustomButton(174, 484,
+                46, 47, 61,
+                "6", 26, 255, 255, 255);
 
-        sixButton = new Button("");
-        sixButton.setGraphic(sixButtonPane);
-        sixButton.setShape(sixButtonCircle);
-        sixButton.setMinSize(72, 72);
-        sixButton.setMaxSize(72, 72);
-        sixButton.setBackground(Background.EMPTY);
-        sixButton.setBorder(Border.EMPTY);
-        sixButton.setPadding(Insets.EMPTY);
-        sixButton.setPickOnBounds(false);
-        sixButton.setTranslateX(174);
-        sixButton.setTranslateY(484);
+        sixButton = sixCustomButton.getButton();
+        sixButton.setOnAction(buttonEventHandler::sixButtonHandler);
 
         // subtract button
-        StackPane subtractionButtonPane = new StackPane();
-        Circle subtractionButtonCircle = new Circle(36, Color.rgb(46,47,61));
-        Label subtractionButtonLabel = new Label("━");
-        subtractionButtonLabel.setTextFill(Color.rgb(225, 178, 65));
-        subtractionButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
-        subtractionButtonPane.getChildren().addAll(subtractionButtonCircle, subtractionButtonLabel);
+        CustomButton subtractionCustomButton = new CustomButton(256, 484,
+                46, 47, 61,
+                "━", 26, 225, 178, 65);
 
-        subtractionButton = new Button("");
-        subtractionButton.setGraphic(subtractionButtonPane);
-        subtractionButton.setShape(subtractionButtonCircle);
-        subtractionButton.setMinSize(72, 72);
-        subtractionButton.setMaxSize(72, 72);
-        subtractionButton.setBackground(Background.EMPTY);
-        subtractionButton.setBorder(Border.EMPTY);
-        subtractionButton.setPadding(Insets.EMPTY);
-        subtractionButton.setPickOnBounds(false);
-        subtractionButton.setTranslateX(256);
-        subtractionButton.setTranslateY(484);
+        subtractionButton = subtractionCustomButton.getButton();
+        subtractionButton.setOnAction(buttonEventHandler::subtractionButtonHandler);
 
         // number 1 button
-        StackPane oneButtonPane = new StackPane();
-        Circle oneButtonCircle = new Circle(36, Color.rgb(46,47,61));
-        Label oneButtonLabel = new Label("1");
-        oneButtonLabel.setTextFill(Color.rgb(225, 255, 255));
-        oneButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
-        oneButtonPane.getChildren().addAll(oneButtonCircle, oneButtonLabel);
+        CustomButton oneCustomButton = new CustomButton(10, 566,
+                46, 47, 61,
+                "1", 26, 255, 255, 255);
 
-        oneButton = new Button("");
-        oneButton.setGraphic(oneButtonPane);
-        oneButton.setShape(oneButtonCircle);
-        oneButton.setMinSize(72, 72);
-        oneButton.setMaxSize(72, 72);
-        oneButton.setBackground(Background.EMPTY);
-        oneButton.setBorder(Border.EMPTY);
-        oneButton.setPadding(Insets.EMPTY);
-        oneButton.setPickOnBounds(false);
-        oneButton.setTranslateX(10);
-        oneButton.setTranslateY(566);
+        oneButton = oneCustomButton.getButton();
+        oneButton.setOnAction(buttonEventHandler::oneButtonHandler);
 
         // number 2 button
-        StackPane twoButtonPane = new StackPane();
-        Circle twoButtonCircle = new Circle(36, Color.rgb(46,47,61));
-        Label twoButtonLabel = new Label("2");
-        twoButtonLabel.setTextFill(Color.rgb(225, 255, 255));
-        twoButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
-        twoButtonPane.getChildren().addAll(twoButtonCircle, twoButtonLabel);
+        CustomButton twoCustomButton = new CustomButton(92, 566,
+                46, 47, 61,
+                "2", 26, 255, 255, 255);
 
-        twoButton = new Button("");
-        twoButton.setGraphic(twoButtonPane);
-        twoButton.setShape(twoButtonCircle);
-        twoButton.setMinSize(72, 72);
-        twoButton.setMaxSize(72, 72);
-        twoButton.setBackground(Background.EMPTY);
-        twoButton.setBorder(Border.EMPTY);
-        twoButton.setPadding(Insets.EMPTY);
-        twoButton.setPickOnBounds(false);
-        twoButton.setTranslateX(92);
-        twoButton.setTranslateY(566);
+        twoButton = twoCustomButton.getButton();
+        twoButton.setOnAction(buttonEventHandler::twoButtonHandler);
 
         // number 3 button
-        StackPane threeButtonPane = new StackPane();
-        Circle threeButtonCircle = new Circle(36, Color.rgb(46,47,61));
-        Label threeButtonLabel = new Label("3");
-        threeButtonLabel.setTextFill(Color.rgb(225, 255, 255));
-        threeButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
-        threeButtonPane.getChildren().addAll(threeButtonCircle, threeButtonLabel);
+        CustomButton threeCustomButton = new CustomButton(174, 566, 46, 47, 61,
+                "3", 26, 255, 255, 255);
 
-        threeButton = new Button("");
-        threeButton.setGraphic(threeButtonPane);
-        threeButton.setShape(threeButtonCircle);
-        threeButton.setMinSize(72, 72);
-        threeButton.setMaxSize(72, 72);
-        threeButton.setBackground(Background.EMPTY);
-        threeButton.setBorder(Border.EMPTY);
-        threeButton.setPadding(Insets.EMPTY);
-        threeButton.setPickOnBounds(false);
-        threeButton.setTranslateX(174);
-        threeButton.setTranslateY(566);
+        threeButton = threeCustomButton.getButton();
+        threeButton.setOnAction(buttonEventHandler::threeButtonHandler);
 
         // addition button
-        StackPane additionButtonPane = new StackPane();
-        Circle additionButtonCircle = new Circle(36, Color.rgb(46,47,61));
-        Label additionButtonLabel = new Label("+");
-        additionButtonLabel.setTextFill(Color.rgb(225, 178, 65));
-        additionButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 36));
-        additionButtonPane.getChildren().addAll(additionButtonCircle, additionButtonLabel);
+        CustomButton additionCustomButton = new CustomButton(256, 566,
+                46, 47, 61,
+                "+", 36, 255, 255, 255);
 
-        additionButton = new Button("");
-        additionButton.setGraphic(additionButtonPane);
-        additionButton.setShape(additionButtonCircle);
-        additionButton.setMinSize(72, 72);
-        additionButton.setMaxSize(72, 72);
-        additionButton.setBackground(Background.EMPTY);
-        additionButton.setBorder(Border.EMPTY);
-        additionButton.setPadding(Insets.EMPTY);
-        additionButton.setPickOnBounds(false);
-        additionButton.setTranslateX(256);
-        additionButton.setTranslateY(566);
+        additionButton = additionCustomButton.getButton();
+        additionButton.setOnAction(buttonEventHandler::additionButtonHandler);
 
         // sign button
-        StackPane signButtonPane = new StackPane();
-        Circle signButtonCircle = new Circle(36, Color.rgb(46,47,61));
-        Label signButtonLabel = new Label("+/-");
-        signButtonLabel.setTextFill(Color.rgb(225, 255, 255));
-        signButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
-        signButtonPane.getChildren().addAll(signButtonCircle, signButtonLabel);
+        CustomButton signCustomButton = new CustomButton(10, 648,
+                46, 47, 61,
+                "+/-", 26, 255, 255, 255);
 
-        signButton = new Button("");
-        signButton.setGraphic(signButtonPane);
-        signButton.setShape(signButtonCircle);
-        signButton.setMinSize(72, 72);
-        signButton.setMaxSize(72, 72);
-        signButton.setBackground(Background.EMPTY);
-        signButton.setBorder(Border.EMPTY);
-        signButton.setPadding(Insets.EMPTY);
-        signButton.setPickOnBounds(false);
-        signButton.setTranslateX(10);
-        signButton.setTranslateY(648);
+        signButton = signCustomButton.getButton();
+        signButton.setOnAction(buttonEventHandler::signButtonHandler);
 
         // number 0 button
         CustomButton zeroCustomButton = new CustomButton(92, 648,
@@ -439,11 +225,4 @@ public class CalculatorView extends Pane {
                 signButton, zeroButton, decimalButton, equalsButton
         );
     }
-
-    public Button getEqualsButton(){
-        return getEqualsButton();
-    }
-
-
-
 }
