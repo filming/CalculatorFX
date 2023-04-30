@@ -20,10 +20,19 @@ import javafx.scene.control.Label;
 public class CalculatorView extends Pane {
     TextField outputField;
 
+    Button divideButton;
+    Button multiplyButton;
+    Button additionButton;
+    Button subtractionButton;
+    Button equalsButton;
+
     Button clearButton;
     Button bracketsButton;
     Button percentButton;
-    Button divideButton;
+    Button signButton;
+    Button decimalButton;
+
+
     Button oneButton;
     Button twoButton;
     Button threeButton;
@@ -153,10 +162,74 @@ public class CalculatorView extends Pane {
         sevenButton.setTranslateX(10);
         sevenButton.setTranslateY(400);
 
+        // number 8 button
+        StackPane eightButtonPane = new StackPane();
+        Circle eightButtonCircle = new Circle(36, Color.rgb(46,47,61));
+        Label eightButtonLabel = new Label("8");
+        eightButtonLabel.setTextFill(Color.rgb(225, 255, 255));
+        eightButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
+        eightButtonPane.getChildren().addAll(eightButtonCircle, eightButtonLabel);
 
-        // 46,47,61
+        eightButton = new Button("");
+        eightButton.setGraphic(eightButtonPane);
+        eightButton.setShape(eightButtonCircle);
+        eightButton.setMinSize(72, 72);
+        eightButton.setMaxSize(72, 72);
+        eightButton.setBackground(Background.EMPTY);
+        eightButton.setBorder(Border.EMPTY);
+        eightButton.setPadding(Insets.EMPTY);
+        eightButton.setPickOnBounds(false);
+        eightButton.setTranslateX(92);
+        eightButton.setTranslateY(400);
 
-        getChildren().addAll(clearButton, bracketsButton, percentButton, divideButton, sevenButton);
+        // number 9 button
+        StackPane nineButtonPane = new StackPane();
+        Circle nineButtonCircle = new Circle(36, Color.rgb(46,47,61));
+        Label nineButtonLabel = new Label("9");
+        nineButtonLabel.setTextFill(Color.rgb(225, 255, 255));
+        nineButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
+        nineButtonPane.getChildren().addAll(nineButtonCircle, nineButtonLabel);
+
+        nineButton = new Button("");
+        nineButton.setGraphic(nineButtonPane);
+        nineButton.setShape(nineButtonCircle);
+        nineButton.setMinSize(72, 72);
+        nineButton.setMaxSize(72, 72);
+        nineButton.setBackground(Background.EMPTY);
+        nineButton.setBorder(Border.EMPTY);
+        nineButton.setPadding(Insets.EMPTY);
+        nineButton.setPickOnBounds(false);
+        nineButton.setTranslateX(174);
+        nineButton.setTranslateY(400);
+
+        // multiply button
+        StackPane multiplyButtonPane = new StackPane();
+        Circle multiplyButtonCircle = new Circle(36, Color.rgb(46,47,61));
+        Label multiplyButtonLabel = new Label("X");
+        multiplyButtonLabel.setTextFill(Color.rgb(225, 255, 255));
+        multiplyButtonLabel.setFont(Font.font("Arial", FontWeight.BOLD, 26));
+        multiplyButtonPane.getChildren().addAll(multiplyButtonCircle, multiplyButtonLabel);
+
+        multiplyButton = new Button("");
+        multiplyButton.setGraphic(multiplyButtonPane);
+        multiplyButton.setShape(multiplyButtonCircle);
+        multiplyButton.setMinSize(72, 72);
+        multiplyButton.setMaxSize(72, 72);
+        multiplyButton.setBackground(Background.EMPTY);
+        multiplyButton.setBorder(Border.EMPTY);
+        multiplyButton.setPadding(Insets.EMPTY);
+        multiplyButton.setPickOnBounds(false);
+        multiplyButton.setTranslateX(256);
+        multiplyButton.setTranslateY(400);
+
+
+
+
+
+        getChildren().addAll(
+                clearButton, bracketsButton, percentButton, divideButton,
+                sevenButton, eightButton, nineButton, multiplyButton
+        );
     }
 
 }
