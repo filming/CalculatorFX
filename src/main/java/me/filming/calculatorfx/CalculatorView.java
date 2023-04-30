@@ -14,6 +14,10 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.paint.Color;
 import javafx.scene.control.Label;
 
+import me.filming.calculatorfx.controller.ButtonEventHandler;
+import me.filming.calculatorfx.view.CustomButton;
+
+
 public class CalculatorView extends Pane {
     TextField outputField;
 
@@ -42,6 +46,8 @@ public class CalculatorView extends Pane {
     Button nineButton;
 
     public CalculatorView(){
+        ButtonEventHandler buttonEventHandler = new ButtonEventHandler();
+
         // set default settings
         setPrefSize(338, 760);
         setStyle("-fx-background-color: #24252F");
@@ -401,25 +407,41 @@ public class CalculatorView extends Pane {
         signButton.setTranslateY(648);
 
         // number 0 button
+        CustomButton zeroCustomButton = new CustomButton(92, 648,
+                46, 47, 61,
+                "0", 26, 255, 255, 255);
+
+        zeroButton = zeroCustomButton.getButton();
+        zeroButton.setOnAction(buttonEventHandler::zeroButtonHandler);
 
 
         // decimal button
+        CustomButton decimalCustomButton = new CustomButton(174, 648,
+                46, 47, 61,
+                ".", 26, 255, 255, 255);
 
+        decimalButton = decimalCustomButton.getButton();
+        decimalButton.setOnAction(buttonEventHandler::decimalButtonHandler);
 
         // equals button
+        CustomButton equalsCustomButton = new CustomButton(256, 648,
+                231, 182, 65,
+                "═", 36, 255, 255, 255);
 
-
-
-
-
+        equalsButton = equalsCustomButton.getButton();
+        equalsButton.setOnAction(buttonEventHandler::equalsButtonHandler);
 
         getChildren().addAll(
                 clearButton, bracketsButton, percentButton, divideButton,
                 sevenButton, eightButton, nineButton, multiplyButton,
                 fourButton, fiveButton, sixButton, subtractionButton,
                 oneButton, twoButton, threeButton, additionButton,
-                signButton
+                signButton, zeroButton, decimalButton, equalsButton
         );
+    }
+
+    public Button getEqualsButton(){
+        return getEqualsButton();
     }
 
 
