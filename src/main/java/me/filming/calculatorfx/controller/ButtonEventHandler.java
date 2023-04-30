@@ -1,9 +1,47 @@
 package me.filming.calculatorfx.controller;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 
 public class ButtonEventHandler {
+    public void divideButtonHandler(ActionEvent event){
+        System.out.println("divide button was clicked");
+    }
+
+    public void multiplyButtonHandler(ActionEvent event){
+        System.out.println("multiply button was clicked");
+    }
+
+    public void additionButtonHandler(ActionEvent event){
+        System.out.println("addition button was clicked");
+    }
+
+    public void subtractionButtonHandler(ActionEvent event){
+        System.out.println("subtraction button was clicked");
+    }
+
+    public void clearButtonHandler(ActionEvent event){
+        System.out.println("clear button was clicked");
+    }
+
+    public void equalsButtonHandler(ActionEvent event){
+        System.out.println("equals button was clicked");
+    }
+
+    public void bracketsButtonHandler(ActionEvent event){
+        System.out.println("brackets button was clicked");
+    }
+
+    public void percentButtonHandler(ActionEvent event){
+        System.out.println("percent button was clicked");
+    }
+
+    public void signButtonHandler(ActionEvent event){
+        System.out.println("sign button was clicked");
+    }
+
+    public void decimalButtonHandler(ActionEvent event){
+        System.out.println("decimal button was clicked");
+    }
 
     public void zeroButtonHandler(ActionEvent event){
         System.out.println("zero button was clicked");
@@ -44,23 +82,4 @@ public class ButtonEventHandler {
     public void nineButtonHandler(ActionEvent event){
         System.out.println("nine button was clicked");
     }
-
-
-
-
-
-
-
-
-
-    public void equalsButtonHandler(ActionEvent event) {
-        System.out.println("equals button was clicked");
-    }
-
-    public void decimalButtonHandler(ActionEvent event) {
-        System.out.println("decimal button was clicked");
-    }
-
-
-
 }
