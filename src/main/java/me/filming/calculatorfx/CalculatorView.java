@@ -1,16 +1,25 @@
 package me.filming.calculatorfx;
 
+import javafx.application.Platform;
+import javafx.event.EventHandler;
+import javafx.geometry.Point2D;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
+import javafx.scene.text.*;
 
 import me.filming.calculatorfx.view.CustomButton;
 import me.filming.calculatorfx.controller.ButtonEventHandler;
 
 public class CalculatorView extends Pane {
-    TextField outputField;
+    TextFlow displayTextFlow;
 
     Button divideButton;
     Button multiplyButton;
@@ -19,7 +28,7 @@ public class CalculatorView extends Pane {
     Button equalsButton;
 
     Button clearButton;
-    Button bracketsButton;
+    Button backspaceButton;
     Button percentButton;
     Button signButton;
     Button decimalButton;
@@ -37,18 +46,19 @@ public class CalculatorView extends Pane {
     Button nineButton;
 
     public CalculatorView(){
-        ButtonEventHandler buttonEventHandler = new ButtonEventHandler();
+        ButtonEventHandler buttonEventHandler = new ButtonEventHandler(this);
 
         // set default settings
         setPrefSize(338, 738);
         setStyle("-fx-background-color: #24252F");
 
         // create output display
+        displayTextFlow = new TextFlow();
+        displayTextFlow.setPrefSize(338, 50);
+        displayTextFlow.setStyle("-fx-font-size: 24px;");
+        displayTextFlow.setTextAlignment(TextAlignment.RIGHT);
 
-
-
-
-
+        getChildren().add(displayTextFlow);
 
         // creating a divider
         Rectangle divider = new Rectangle(10, 300, 318, 2);
@@ -65,13 +75,13 @@ public class CalculatorView extends Pane {
         clearButton = clearCustomButton.getButton();
         clearButton.setOnAction(buttonEventHandler::clearButtonHandler);
 
-        // brackets button
-        CustomButton bracketsCustomButton = new CustomButton(92, 320,
+        // backspace button
+        CustomButton backspaceCustomButton = new CustomButton(92, 320,
                 60, 61, 78,
-                "(  )", 26, 225, 178, 65);
+                "⌫", 36, 225, 178, 65);
 
-        bracketsButton = bracketsCustomButton.getButton();
-        bracketsButton.setOnAction(buttonEventHandler::bracketsButtonHandler);
+        backspaceButton = backspaceCustomButton.getButton();
+        backspaceButton.setOnAction(buttonEventHandler::backspaceButtonHandler);
 
         // percent button
         CustomButton percentCustomButton = new CustomButton(174, 320,
@@ -218,11 +228,27 @@ public class CalculatorView extends Pane {
         equalsButton.setOnAction(buttonEventHandler::equalsButtonHandler);
 
         getChildren().addAll(
-                clearButton, bracketsButton, percentButton, divideButton,
+                clearButton, backspaceButton, percentButton, divideButton,
                 sevenButton, eightButton, nineButton, multiplyButton,
                 fourButton, fiveButton, sixButton, subtractionButton,
                 oneButton, twoButton, threeButton, additionButton,
                 signButton, zeroButton, decimalButton, equalsButton
         );
+    }
+
+    public void update(Text buttonInput){
+        if (buttonInput.getText().equals("clear")) {
+            displayTextFlow.getChildren().clear();
+        }
+        else if (buttonInput.getText().equals("backspace")){
+            int lastChildIndex = displayTextFlow.getChildren().size() - 1;
+
+            if (lastChildIndex > 0){
+                displayTextFlow.getChildren().remove(lastChildIndex);
+            }
+        }
+        else {
+            displayTextFlow.getChildren().add(buttonInput);
+        }
     }
 }

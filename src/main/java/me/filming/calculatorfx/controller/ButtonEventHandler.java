@@ -1,34 +1,46 @@
 package me.filming.calculatorfx.controller;
 
 import javafx.event.ActionEvent;
+import javafx.scene.text.Text;
+import me.filming.calculatorfx.CalculatorView;
 
 public class ButtonEventHandler {
+    CalculatorView view;
+
+    public ButtonEventHandler(CalculatorView initView){
+        view = initView;
+    }
+
     public void divideButtonHandler(ActionEvent event){
-        System.out.println("divide button was clicked");
     }
 
     public void multiplyButtonHandler(ActionEvent event){
-        System.out.println("multiply button was clicked");
     }
 
     public void additionButtonHandler(ActionEvent event){
-        System.out.println("addition button was clicked");
+
     }
 
     public void subtractionButtonHandler(ActionEvent event){
-        System.out.println("subtraction button was clicked");
+
     }
 
     public void clearButtonHandler(ActionEvent event){
-        System.out.println("clear button was clicked");
+        Text clearText = new Text("clear");
+
+        view.update(clearText);
     }
 
     public void equalsButtonHandler(ActionEvent event){
+
         System.out.println("equals button was clicked");
     }
 
-    public void bracketsButtonHandler(ActionEvent event){
-        System.out.println("brackets button was clicked");
+    public void backspaceButtonHandler(ActionEvent event){
+        Text backspaceText = new Text("backspace");
+
+        view.update(backspaceText);
+        System.out.println("backspace button was clicked");
     }
 
     public void percentButtonHandler(ActionEvent event){
@@ -40,46 +52,79 @@ public class ButtonEventHandler {
     }
 
     public void decimalButtonHandler(ActionEvent event){
-        System.out.println("decimal button was clicked");
+        Text decimalText = new Text(".");
+        decimalText.setStyle("-fx-font-size: 36px; -fx-fill: #FFFFFF");
+
+        view.update(decimalText);
     }
 
     public void zeroButtonHandler(ActionEvent event){
-        System.out.println("zero button was clicked");
+        Text zeroText = new Text("0");
+        zeroText.setStyle("-fx-font-size: 36px; -fx-fill: #FFFFFF");
+
+        view.update(zeroText);
     }
 
     public void oneButtonHandler(ActionEvent event){
-        System.out.println("one button was clicked");
+        Text oneText = new Text("1");
+        oneText.setStyle("-fx-font-size: 36px; -fx-fill: #FFFFFF");
+
+        view.update(oneText);
     }
 
     public void twoButtonHandler(ActionEvent event){
-        System.out.println("two button was clicked");
+        Text twoText = new Text("2");
+        twoText.setStyle("-fx-font-size: 36px; -fx-fill: #FFFFFF");
+
+        view.update(twoText);
     }
 
     public void threeButtonHandler(ActionEvent event){
-        System.out.println("three button was clicked");
+        Text threeText = new Text("3");
+        threeText.setStyle("-fx-font-size: 36px; -fx-fill: #FFFFFF");
+
+        view.update(threeText);
     }
 
     public void fourButtonHandler(ActionEvent event){
-        System.out.println("four button was clicked");
+        Text fourText = new Text("4");
+        fourText.setStyle("-fx-font-size: 36px; -fx-fill: #FFFFFF");
+
+        view.update(fourText);
     }
 
     public void fiveButtonHandler(ActionEvent event){
-        System.out.println("five button was clicked");
+        Text fiveText = new Text("5");
+        fiveText.setStyle("-fx-font-size: 36px; -fx-fill: #FFFFFF");
+
+        view.update(fiveText);
     }
 
     public void sixButtonHandler(ActionEvent event){
-        System.out.println("six button was clicked");
+        Text sixText = new Text("6");
+        sixText.setStyle("-fx-font-size: 36px; -fx-fill: #FFFFFF");
+
+        view.update(sixText);
     }
 
     public void sevenButtonHandler(ActionEvent event){
-        System.out.println("seven button was clicked");
+        Text sevenText = new Text("7");
+        sevenText.setStyle("-fx-font-size: 36px; -fx-fill: #FFFFFF");
+
+        view.update(sevenText);
     }
 
     public void eightButtonHandler(ActionEvent event){
-        System.out.println("eight button was clicked");
+        Text eightText = new Text("8");
+        eightText.setStyle("-fx-font-size: 36px; -fx-fill: #FFFFFF");
+
+        view.update(eightText);
     }
 
     public void nineButtonHandler(ActionEvent event){
-        System.out.println("nine button was clicked");
+        Text nineText = new Text("9");
+        nineText.setStyle("-fx-font-size: 36px; -fx-fill: #FFFFFF");
+
+        view.update(nineText);
     }
 }
