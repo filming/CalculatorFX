@@ -1,28 +1,71 @@
 package me.filming.calculatorfx.controller;
 
 import javafx.event.ActionEvent;
+import javafx.scene.Node;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import me.filming.calculatorfx.Calculator;
 import me.filming.calculatorfx.CalculatorView;
 
 public class ButtonEventHandler {
+    Calculator model;
     CalculatorView view;
 
-    public ButtonEventHandler(CalculatorView initView){
+    public ButtonEventHandler(CalculatorView initView, Calculator initModel){
+        model = initModel;
         view = initView;
     }
 
     public void divideButtonHandler(ActionEvent event){
+        String currentNumber = "";
+        for (Node element : view.getDisplayTextFlow().getChildren()){
+            currentNumber += ((Text)element).getText();
+        }
+
+        currentNumber += "/";
+        model.addInput(currentNumber);
+
+        Text clearText = new Text("clear");
+        view.update(clearText);
     }
 
     public void multiplyButtonHandler(ActionEvent event){
+        String currentNumber = "";
+        for (Node element : view.getDisplayTextFlow().getChildren()){
+            currentNumber += ((Text)element).getText();
+        }
+
+        currentNumber += "*";
+        model.addInput(currentNumber);
+
+        Text clearText = new Text("clear");
+        view.update(clearText);
     }
 
     public void additionButtonHandler(ActionEvent event){
+        String currentNumber = "";
+        for (Node element : view.getDisplayTextFlow().getChildren()){
+            currentNumber += ((Text)element).getText();
+        }
 
+        currentNumber += "+";
+        model.addInput(currentNumber);
+
+        Text clearText = new Text("clear");
+        view.update(clearText);
     }
 
     public void subtractionButtonHandler(ActionEvent event){
+        String currentNumber = "";
+        for (Node element : view.getDisplayTextFlow().getChildren()){
+            currentNumber += ((Text)element).getText();
+        }
 
+        currentNumber += "-";
+        model.addInput(currentNumber);
+
+        Text clearText = new Text("clear");
+        view.update(clearText);
     }
 
     public void clearButtonHandler(ActionEvent event){

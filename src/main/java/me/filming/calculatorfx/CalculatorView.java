@@ -45,8 +45,8 @@ public class CalculatorView extends Pane {
     Button eightButton;
     Button nineButton;
 
-    public CalculatorView(){
-        ButtonEventHandler buttonEventHandler = new ButtonEventHandler(this);
+    public CalculatorView(Calculator initModel){
+        ButtonEventHandler buttonEventHandler = new ButtonEventHandler(this, initModel);
 
         // set default settings
         setPrefSize(338, 738);
@@ -250,5 +250,9 @@ public class CalculatorView extends Pane {
         else {
             displayTextFlow.getChildren().add(buttonInput);
         }
+    }
+
+    public TextFlow getDisplayTextFlow(){
+        return displayTextFlow;
     }
 }

@@ -10,8 +10,8 @@ public class CalculatorApp extends Application {
         Pane  aPane = new Pane();
 
         // Create a model & view instance
-        Calculator calculator = new Calculator();
-        CalculatorView view = new CalculatorView();
+        Calculator model = new Calculator();
+        CalculatorView view = new CalculatorView(model);
         aPane.getChildren().add(view);
 
 
