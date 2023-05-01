@@ -8,6 +8,7 @@ import me.filming.calculatorfx.Calculator;
 import me.filming.calculatorfx.CalculatorView;
 
 public class ButtonEventHandler {
+    String currentNumber;
     Calculator model;
     CalculatorView view;
 
@@ -17,7 +18,7 @@ public class ButtonEventHandler {
     }
 
     public void divideButtonHandler(ActionEvent event){
-        String currentNumber = "";
+        currentNumber = "";
         for (Node element : view.getDisplayTextFlow().getChildren()){
             currentNumber += ((Text)element).getText();
         }
@@ -30,7 +31,7 @@ public class ButtonEventHandler {
     }
 
     public void multiplyButtonHandler(ActionEvent event){
-        String currentNumber = "";
+        currentNumber = "";
         for (Node element : view.getDisplayTextFlow().getChildren()){
             currentNumber += ((Text)element).getText();
         }
@@ -43,7 +44,7 @@ public class ButtonEventHandler {
     }
 
     public void additionButtonHandler(ActionEvent event){
-        String currentNumber = "";
+        currentNumber = "";
         for (Node element : view.getDisplayTextFlow().getChildren()){
             currentNumber += ((Text)element).getText();
         }
@@ -56,7 +57,7 @@ public class ButtonEventHandler {
     }
 
     public void subtractionButtonHandler(ActionEvent event){
-        String currentNumber = "";
+        currentNumber = "";
         for (Node element : view.getDisplayTextFlow().getChildren()){
             currentNumber += ((Text)element).getText();
         }
@@ -76,6 +77,7 @@ public class ButtonEventHandler {
 
     public void equalsButtonHandler(ActionEvent event){
 
+
         System.out.println("equals button was clicked");
     }
 
@@ -83,15 +85,35 @@ public class ButtonEventHandler {
         Text backspaceText = new Text("backspace");
 
         view.update(backspaceText);
-        System.out.println("backspace button was clicked");
     }
 
     public void percentButtonHandler(ActionEvent event){
-        System.out.println("percent button was clicked");
+        currentNumber = "";
+        for (Node element : view.getDisplayTextFlow().getChildren()){
+            currentNumber += ((Text)element).getText();
+        }
+
+        currentNumber += "%";
+        model.addInput(currentNumber);
+
+        Text clearText = new Text("clear");
+        view.update(clearText);
     }
 
     public void signButtonHandler(ActionEvent event){
-        System.out.println("sign button was clicked");
+        String currentNumber = "";
+        for (Node element : view.getDisplayTextFlow().getChildren()){
+            currentNumber += ((Text)element).getText();
+        }
+
+        double tempCurrentNumber = Double.parseDouble(currentNumber);
+        tempCurrentNumber *= -1;
+
+        currentNumber = "" + tempCurrentNumber;
+        model.addInput(currentNumber);
+
+        Text clearText = new Text("clear");
+        view.update(clearText);
     }
 
     public void decimalButtonHandler(ActionEvent event){
