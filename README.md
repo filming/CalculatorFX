@@ -8,7 +8,7 @@
 - Division
 - Multiplication
 
-### Addition features of this calculator include:
+### Additional features of this calculator include:
 - Previous answer is saved for future operations.
 - Clear button exists in order to rid idea of a previous answer.
 
