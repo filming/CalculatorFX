@@ -76,8 +76,24 @@ public class ButtonEventHandler {
     }
 
     public void equalsButtonHandler(ActionEvent event){
+        currentNumber = "";
+        for (Node element : view.getDisplayTextFlow().getChildren()){
+            currentNumber += ((Text)element).getText();
+        }
+
+        model.addInput(currentNumber);
+
+        Text clearText = new Text("clear");
+        view.update(clearText);
+
+        double result = model.evaluateInputs();
+        view.getDisplayTextFlow().getChildren().clear();
 
 
+        Text resultText = new Text("" + result);
+        resultText.setStyle("-fx-font-size: 36px; -fx-fill: #ea6805");
+
+        view.getDisplayTextFlow().getChildren().add(resultText);
         System.out.println("equals button was clicked");
     }
 
